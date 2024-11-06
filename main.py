@@ -14,6 +14,9 @@ if __name__ == "__main__":
     sleep(3)
     searchbox = driver.find_element(By.XPATH, '//*[@id="searchTextbox"]').send_keys(name + "\n")
     sleep(3)
-   
+    
+    history_link = driver.find_element(By.LINK_TEXT,"History")
+    history_link.click()
 
+    sleep(4)
     
