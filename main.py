@@ -17,6 +17,10 @@ if __name__ == "__main__":
     
     history_link = driver.find_element(By.LINK_TEXT,"History")
     history_link.click()
+    print(driver.current_url)
 
     sleep(4)
+
+
+
     
