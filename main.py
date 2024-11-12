@@ -31,6 +31,10 @@ if __name__ == "__main__":
     for element in h4_elements:
      print (element.text)
 
+    td_elements = soup.find_all('td')
+    for element in td_elements:
+       print(element.text)
+
 
 
 
