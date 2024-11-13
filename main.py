@@ -33,7 +33,8 @@ if __name__ == "__main__":
 
     td_elements = soup.find_all('td')
     for element in td_elements:
-       print(element.text)
+       if element.a != None:
+          print (element.text)
 
 
 
