@@ -27,14 +27,18 @@ if __name__ == "__main__":
     soup = BeautifulSoup(html, features = "html.parser")
 
     h4_elements = soup.find_all('h4')
+    h5_elements = soup.find_all('h5')
 
-    for element in h4_elements:
-     print (element.text)
+    for h4,h5 in zip(h4_elements,h5_elements):
+     print (h4.text)
+     print(h5.a.text)
+     print(h5.text)
 
-    td_elements = soup.find_all('td')
-    for element in td_elements:
-       if element.a != None:
-          print (element.text)
+    
+    #td_elements = soup.find_all('td')
+    #for element in td_elements:
+    #   if element.a != None:
+    #      print (element.text)
 
 
 
