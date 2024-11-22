@@ -9,17 +9,26 @@ import requests
 
 
 if __name__ == "__main__":
+    #get input from user
     name = input("Please enter fencer name: ")
+   
+   
+   
+   #initialize webdriver and navigate to the users page, utilizes sleeps so that the searchbar has time to load
     driver = webdriver.Chrome()
     driver.get("https://www.fencingtracker.com")
     driver.find_element(By.XPATH, '//*[@class="navbar-toggler"]').click()
     sleep(1)
+
+
     searchbox = driver.find_element(By.XPATH, '//*[@id="searchTextbox"]').send_keys(name + "\n")
     sleep(1)
     
     history_link = driver.find_element(By.LINK_TEXT,"History")
     history_link.click()
 
+
+    #scrape elements from page
     elements = driver.find_elements(By.TAG_NAME,"h4")
     sleep(1)
 
