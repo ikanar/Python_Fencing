@@ -37,16 +37,25 @@ if __name__ == "__main__":
 
     h4_elements = soup.find_all('h4')
     h5_elements = soup.find_all('h5')
+    tables = soup.find_all('tbody',{'class','table-group-divider'})
 
-    for h4,h5 in zip(h4_elements,h5_elements):
-     print (h4.text)
-     print(h5.a.text)
-     print(h5.text)
+   # for h4,h5 in zip(h4_elements,h5_elements):
+   #  print (h4.text)
+   #  print(h5.a.text)
+   #  print(h5.text)
+    
+
+    #there are 14 elements in the tournament table
+
+    for table in tables[3:]:
+        rows = table.find_all('td')
+        for row in rows[1:]:
+            print (row.text.strip())
+        sleep(100)
 
     
     #td_elements = soup.find_all('td')
     #for element in td_elements:
-    #   if element.a != None:
     #      print (element.text)
 
 
