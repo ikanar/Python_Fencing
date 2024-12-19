@@ -35,6 +35,8 @@ class Bout:
     strength: str
     change: str
     chance_of_victory: str
+    event_name: str
+    tournament_name: str
 
 
 
