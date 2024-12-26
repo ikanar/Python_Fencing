@@ -37,6 +37,7 @@ class Bout:
     chance_of_victory: str
     event_name: str
     tournament_name: str
+    date: str
 
 
 
@@ -71,10 +72,24 @@ if __name__ == "__main__":
     h4_elements = soup.find_all('h4')
     h5_elements = soup.find_all('h5')
     tables = soup.find_all('tbody',{'class','table-group-divider'})
+    bout_dates = []
 
-    for h4,h5 in zip(h4_elements,h5_elements):
-        print (h4.text.strip())
-        print(h5.a.text.strip())
+    delimiter ="),"
+
+    for element in h5_elements:
+        tokens =element.text.split(delimiter)
+        bout_dates.append(tokens[1].strip())
+    
+    for date in bout_dates:
+        print(date)
+
+
+
+
+
+    #for h4,h5 in zip(h4_elements,h5_elements):
+    #    print (h4.text.strip())
+    #    print(h5.a.text.strip())
     
 
     #there are 14 elements in the tournament table
@@ -89,9 +104,12 @@ if __name__ == "__main__":
             temp_bout.append(row.text.strip())
             
             if(len(temp_bout) == 14):
-                #creates bout object, stores the bout in the bout_history list, resets the temp_bout to an empty list
+                #creates bout object, stores the bout in the bout_history list
                 bout = Bout(temp_bout[0],temp_bout[1],temp_bout[2],temp_bout[3],temp_bout[4],temp_bout[5],temp_bout[6],temp_bout[7],temp_bout[8],temp_bout[9],temp_bout[10],temp_bout[11],temp_bout[12],temp_bout[13])
                 bout_history.append(bout)
+               
+               
+               #resets the temp_bout to an empty list
                 temp_bout = []
                 print(bout.opponent)
         #sleep(100)
